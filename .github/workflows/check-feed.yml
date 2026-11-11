@@ -1,0 +1,25 @@
+# Does nothing until the repository variable SITE_URL is set.
+# GitHub emails the person who last edited this schedule when a run fails; delivery can be late.
+name: check-feed
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: check-feed
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - run: node scripts/check-feed.mjs
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
