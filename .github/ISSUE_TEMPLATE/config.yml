@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: セキュリティの問題（非公開で報告）
+    url: https://github.com/8rnsmymxq2-sketch/quake-fallback/security/advisories/new
+    about: 脆弱性は公開せず、こちらから知らせてください。
+  - name: 今の地震・津波の情報（気象庁）
+    url: https://www.jma.go.jp/bosai/map.html#contents=earthquake_map
+    about: 緊急の情報は、気象庁や自治体で確認してください。
